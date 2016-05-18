@@ -14,25 +14,25 @@ var CountdownForm = React.createClass({
     if (strSeconds.match(/^[0-9]*$/)) {
       that.refs.seconds.value = '';
       that.props.onSetCountdown(parseInt(strSeconds, 10));
-    }else{
+    }
+    else{
       that.setState({
         showErrorMessage: true
       });
-
       that.refs.seconds.value = '';
     }
   },
   render: function() {
+
       var {showErrorMessage} = this.state;
-      function renderError(){
+      var renderError = () => {
         if(showErrorMessage){
-          console.log('this is false');
-          return (
-            <ErrorModal/>
-          )
           this.setState({
             showErrorMessage: false
           });
+          return (
+            <ErrorModal/>
+          )
         }
       }
       return (
