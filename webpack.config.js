@@ -1,5 +1,5 @@
 var webpack = require('webpack');
-
+var path = require('path');
 module.exports = {
   entry: [
     'script!jquery/dist/jquery.min.js',
@@ -29,7 +29,8 @@ module.exports = {
       Timer: 'app/components/Timer.jsx',
       Clock: 'app/components/Clock.jsx',
       CountdownForm: 'app/components/CountdownForm.jsx',
-      ErrorModal: 'app/components/ErrorModal.jsx'
+      ErrorModal: 'app/components/ErrorModal.jsx',
+      Controls: 'app/components/Controls.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },
@@ -51,6 +52,11 @@ module.exports = {
         test: /\.css$/,
         loader: 'style!css'
       }
+    ]
+  },
+  sassLoader: {
+    includePaths: [
+      path.resolve(__dirname, './node_modules/foundation-sites/scss')
     ]
   },
   devtool: 'cheap-module-eval-source-map'
